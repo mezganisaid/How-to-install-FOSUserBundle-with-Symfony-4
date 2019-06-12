@@ -206,7 +206,7 @@ fos_user:
 
 <h2 class="text-primary" title="Étape 7: mettez à jour votre schéma de base de données">Étape 7: mettez à jour votre schéma de base de données</h2>
 <br><br>
-<textarea cols="10" rows="10" class="text-left textareacode">	
+<pre><code>	
 ### Créer la base de donnée 
 php bin/console doctrine:database:create
 ### Voir les modifications sans rien faire
