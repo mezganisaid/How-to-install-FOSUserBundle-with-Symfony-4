@@ -1,0 +1,7 @@
+fos_user:
+    db_driver: orm # other valid values are 'mongodb' and 'couchdb'
+    firewall_name: main
+    user_class: App\Entity\User
+    from_email:
+        address: "said.mezgani@capgemini.com"
+        sender_name: "said.mezgani@capgemini.com"
