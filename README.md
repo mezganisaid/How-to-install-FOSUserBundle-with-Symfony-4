@@ -99,7 +99,6 @@ Créez src/Entity/User.php qui étend de la classe FOSUserBundle BaseUser.
 <br><br>
 <pre>
 <code>
-<pre><code>	
 <?php
 // src/Entity/User.php
 
@@ -128,8 +127,6 @@ class User extends BaseUser
     }
 }
 </code></pre>
-</code>
-</pre>
 <br><br>
 
 <h2 class="text-primary" title="Étape 4: configurez le fichier security.yml de votre application">Étape 4: configurez le fichier security.yml de votre application</h2>
