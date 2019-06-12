@@ -1,5 +1,6 @@
 # How-to-install-FOSUserBundle-with-Symfony-4
 
+<img src="https://www.mezganisaid.com/blog/images/img_article/Symfony2.svg_.png" class="img-responsive">
 
 <strong>FOSUserBundle est certainement le bundle le plus populaire pour gérer les utilisateurs de Symfony.</strong><br><br>
 
@@ -13,9 +14,9 @@ Vous trouverez ci-dessous les étapes nécessaires à l’utilisation de FOSUser
 <br>
 La première étape est l’installation du squelette de symfony pour partir d’une base propre.
 <br>
-<textarea cols="5" rows="5" class="text-left textareacode">	
+<pre><code>	
   composer create-project symfony/skeleton fosUserBundleProject
-</textarea>
+</code></pre>
 <br><br>
 <h3 class="text-blog" title="Doctrine">Doctrine</h3>
 <br>
@@ -23,65 +24,65 @@ Object-Relational-Mapper pour gérer la base de données
 <br><br>
 Vous devez pointer sur le project pour instaler l'ORM
 <br><br>
-<textarea cols="5" rows="5" class="text-left textareacode">	
+<pre><code>	
   cd fosUserBundleProject/
-</textarea>
+</code></pre>
 <br><br>
-<textarea cols="5" rows="5" class="text-left textareacode">	
+<pre><code>	
   composer require doctrine
-</textarea>
+</code></pre>
 <br><br>
 Ou
 <br><br>
-<textarea cols="5" rows="5" class="text-left textareacode">	
+<pre><code>	
   composer require orm
-</textarea>
+</code></pre>
 <br><br>
 A cette étape, vous devez modifier votre fichier de configuration .env et éventuellement config/packages/doctrine.yaml.<br>
 En .env, la chaîne à modifier est la suivante :
 <br><br>
-<textarea cols="5" rows="5" class="text-left textareacode">	
+<pre><code>	
   DATABASE_URL=mysql://userbd:passbd@localhost:3306/dbname
-</textarea>
+</code></pre>
 <br><br>
 <h3 class="text-blog" title="Annotations">Annotations</h3>
 <br>
 Docblock Annotations Parser utilisé avec Doctrine
 <br><br>
-<textarea cols="5" rows="5" class="text-left textareacode">	
+<pre><code>	
   composer require annotations
-</textarea>
+</code></pre>
 <br><br>
 <h3 class="text-blog" title="SwiftMailerBundle">SwiftMailerBundle</h3>
 <br>
 Swiftmailer, PHP messagerie gratuite et riche en fonctionnalités
 <br><br>
-<textarea cols="5" rows="5" class="text-left textareacode">	
+<pre><code>	
   composer require swiftmailer-bundle
-</textarea>
+</code></pre>
 <br><br>
 <h3 class="text-blog" title="Twig">Twig</h3>
 <br>
 Twig, le langage de template flexible, rapide et sécurisé pour PHP
 <br><br>
-<textarea cols="5" rows="5" class="text-left textareacode">	
+<pre><code>	
   composer require twig
-</textarea>
+</code></pre>
 <br><br>
 <h3 class="text-blog" title="Web Server">Web Server</h3>
 <br>
 Symfony WebServerBundle
 <br><br>
-<textarea cols="5" rows="5" class="text-left textareacode">	
+<pre><code>	
   composer require server --dev
-</textarea>
+</code></pre>
 <br><br>
 
 <h2 class="text-primary" title="Étape 2: Téléchargez FOSUserBundle à l'aide de composer">Étape 2: Téléchargez FOSUserBundle à l'aide de composer</h2>
 <br><br>
-<textarea cols="5" rows="5" class="text-left textareacode">	
+<pre><code>	
   composer require friendsofsymfony/user-bundle "~2.0"
-</textarea>
+</code></pre>
 <br><br>
 A la fin de l'installation, vous aurez le message d'erreur suivant:
 <br><br>
@@ -98,7 +99,7 @@ Créez src/Entity/User.php qui étend de la classe FOSUserBundle BaseUser.
 <br><br>
 <pre>
 <code>
-<textarea cols="25" rows="25" class="text-left textareacode">	
+<pre><code>	
 <?php
 // src/Entity/User.php
 
@@ -126,7 +127,7 @@ class User extends BaseUser
         // your own logic
     }
 }
-</textarea>
+</code></pre>
 </code>
 </pre>
 <br><br>
@@ -135,9 +136,7 @@ class User extends BaseUser
 <br><br>
 Modifier le fichier security.yml sur le chemin config/packages/security.yaml (Configuration de symfony FOSUserBundle security)
 <br><br>
-<pre>
-<code>
-<textarea cols="25" rows="25" class="text-left textareacode">	
+<pre><code>	
 security:
     encoders:
         FOS\UserBundle\Model\UserInterface: bcrypt
@@ -171,16 +170,14 @@ security:
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/, role: ROLE_USER }
-</textarea>
-</code>
-</pre>
+</code></pre>
 <br><br>
 
 <h2 class="text-primary" title="Étape 5: Configurez le FOSUserBundle">Étape 5: Configurez le FOSUserBundle</h2>
 <br><br>
 Créer un fichier config/packages/fos_user.yaml
 <br><br>
-<textarea cols="15" rows="15" class="text-left textareacode">	
+<pre><code>	
 fos_user:
     db_driver: orm # other valid values are 'mongodb' and 'couchdb'
     firewall_name: main
@@ -188,25 +185,25 @@ fos_user:
     from_email:
         address: "mezgani.said@gmail.com"
         sender_name: "mezgani.said@gmail.com"
-</textarea>
+</code></pre>
 <br><br>
 Mettez à jour config/packages/framework.yaml pour ajouter une configuration de modèle
 <br><br>
-<textarea cols="15" rows="15" class="text-left textareacode">	
+<pre><code>	
 framework:
     templating:
         engines: ['twig', 'php']
-</textarea>
+</code></pre>
 <br><br>
 
 <h2 class="text-primary" title="Étape 6: Importer le routage FOSUserBundle">Étape 6: Importer le routage FOSUserBundle</h2>
 <br><br>
 Créer config/routes/fos_user.yaml
 <br><br>
-<textarea cols="5" rows="5" class="text-left textareacode">	
+<pre><code>	
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
-</textarea>
+</code></pre>
 <br><br>
 
 <h2 class="text-primary" title="Étape 7: mettez à jour votre schéma de base de données">Étape 7: mettez à jour votre schéma de base de données</h2>
@@ -218,20 +215,18 @@ php bin/console doctrine:database:create
 php bin/console doctrine:schema:update --dump-sql
 ### Forcer les modifications 
 php bin/console doctrine:schema:update --force
-</textarea>
+</code></pre>
 <br><br>
 À ce stade, tout est installé et configuré pour utiliser FOSUserBundle dans Symfony 4. Exécutez la commande suivante pour vérifier si tout va bien
 <br><br>
-<textarea cols="5" rows="5" class="text-left textareacode">	
+<pre><code>	
   composer update
-</textarea>
+</code></pre>
 <br><br>
-<textarea cols="5" rows="5" class="text-left textareacode">	
+<pre><code>	
   php bin/console server:run
-</textarea>
+</code></pre>
 <br><br>
 <img src="https://www.mezganisaid.com/blog/images/img_article/fosuserbundle.png" class="img-responsive">
-
-
 
 
