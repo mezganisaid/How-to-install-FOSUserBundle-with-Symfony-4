@@ -1,4 +1,4 @@
-# How-to-install-FOSUserBundle-with-Symfony-4
+# Comment installer FOSUserBundle avec Symfony 4
 
 <img src="https://www.mezganisaid.com/blog/images/img_article/Symfony2.svg_.png" class="img-responsive">
 
@@ -107,17 +107,17 @@ namespace App\Entity;
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 
-/**
- * @ORM\Entity
- * @ORM\Table(name="fos_user")
- */
+##/**
+ ##* @ORM\Entity
+ ##* @ORM\Table(name="fos_user")
+ ##*/
 class User extends BaseUser
 {
-    /**
-     * @ORM\Id
-     * @ORM\Column(type="integer")
-     * @ORM\GeneratedValue(strategy="AUTO")
-     */
+    ##/**
+     ##* @ORM\Id
+     ##* @ORM\Column(type="integer")
+     ##* @ORM\GeneratedValue(strategy="AUTO")
+     ##*/
     protected $id;
 
     public function __construct()
@@ -127,7 +127,7 @@ class User extends BaseUser
     }
 }
 </code></pre>
-
+N'oublie pas de supprimer les "#"
 <br><br>
 
 <h2 class="text-primary" title="Étape 4: configurez le fichier security.yml de votre application">Étape 4: configurez le fichier security.yml de votre application</h2>
